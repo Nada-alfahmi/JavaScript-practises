@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Photo Gallery</title>
+	<link rel="stylesheet" href="style.css">
+	<script src = "script.js"></script>
+
+<style>
+	body{
+		margin: 0;
+      overflow: hidden; /* Prevent scrolling while the overlay is active */
+      background-size: 90%; /* Adjust the percentage as needed */
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+	.preview{
+	  width:10%;
+	  margin-left:17%;
+  background-color: #000000;
+  border:50%;
+
+	}S
+	img{
+	  width:95%;
+	}
+	a:focus {
+	  outline: auto Highlight; /* for non-webkit browsers */
+	}
+	#txt{
+	
+	  color:#853685;
+	  text-align: left;
+	  margin-bottom:25px;
+	  font-size: 150%;
+	
+	}
+	#image{
+	  line-height:650px;
+	  width: 575px;
+	  height: 555px;
+	  margin-left:300px;
+	  margin : 0 auto;
+	  background-color: #c6b3ff;
+	  background-image: url('');
+	  background-repeat: no-repeat;
+	  color:#FFFFFF;
+	  text-align: center;
+	  background-size: 100%;
+	  margin-bottom:25px;
+	  font-size: 150%;
+
+	  
+	}</style></head>
+<body  onload="start()" >
+
+	<div id = "image">
+		Hover over an image to see my art.
+	</div> 
+
+<img class = "preview" alt = "Adorable scara"  src = "images\NewCanvas2.jpg"  onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">
+<img class = "preview" alt = "Say Hello to scara" src = "images\scaaaa.jpg" onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">
+<img class = "preview" src = "images\scababil.jpg" alt = "Tears " onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">
+<img class = "preview" src = "images\scaramouch1.jpg" alt = "Be quite~" onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">
+<img class = "preview" src = "images\sca1.jpg" alt = "Chubby cheecks" onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">  
+<img class = "preview" src = "images\Scaramouchie.jpg" alt = "Waiting ~" onfocus="upDate(this)" onblur="unDo()" onmouseover = "upDate(this)" onmouseout = "unDo()">  
+	<div id="overlay"></div>
+
+<script>
+  function start(){
+   pickImg();
+   keyb();
+
+}
+ function pickImg() {
+	var imgs = ["NewCanvas2.jpg", "sca1.jpg", "scaaaa.jpg", "scababil.jpg", "scaramouch1.jpg", "Scaramouchie.jpg"];
+      var randomImg = "url('images/" + imgs[Math.floor(Math.random() * imgs.length)] + "')";
+      document.body.style.backgroundImage = randomImg;
+  }
+  
+ function upDate(previewPic) {
+	var element = document.getElementById("image");
+	element.style.backgroundImage = "url(" + previewPic.src + ")";
+	element.innerHTML = previewPic.alt;
+
+  }
+  
+ function unDo() {
+	var element = document.getElementById("image");
+	element.style.backgroundImage = "url('')";
+	element.innerHTML = "Hover over an image to see my art.";
+
+  }
+
+ function keyb(previewPic)
+ {
+		img = document.querySelectorAll(".preview")
+		for (i = 0; i < img.length; i++) {
+			console.log("Image " + i)
+			img[i].setAttribute("tabindex","0")
+		}
+}
+</script></body>
+</html>
+
